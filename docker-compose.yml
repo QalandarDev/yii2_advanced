@@ -5,7 +5,7 @@ services:
   frontend:
     build: frontend
     ports:
-      - 20080:80
+      - 2022:80
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -15,7 +15,7 @@ services:
   backend:
     build: backend
     ports:
-      - 21080:80
+      - 2023:80
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -23,7 +23,7 @@ services:
       - ./:/app
 
   mysql:
-    image: mysql:5.7
+    image: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=verysecret
       - MYSQL_DATABASE=yii2advanced
