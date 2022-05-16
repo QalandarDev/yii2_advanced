@@ -3,14 +3,12 @@
 namespace common\fixtures;
 
 use yii\test\ActiveFixture;
-use common\models\User;
 use common\models\Admin;
-
 /*
  * @var $AdminClass
  * */
 
-class UserFixture extends ActiveFixture
+class AdminFixture extends ActiveFixture
 {
-    public $modelClass = User::class;
+    public $modelClass = Admin::class;
 }

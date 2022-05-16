@@ -5,7 +5,7 @@ services:
   frontend:
     build: frontend
     ports:
-      - 2022:80
+      - 2024:80
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -15,7 +15,7 @@ services:
   backend:
     build: backend
     ports:
-      - 2023:80
+      - 2025:80
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -30,9 +30,9 @@ services:
       - MYSQL_USER=yii2advanced
       - MYSQL_PASSWORD=secret
 
-  #pgsql:
-  #  image: postgres:9.5
-  #  environment:
-  #    - POSTGRES_DB=yii2advanced
-  #    - POSTGRES_USER=yii2advanced
-  #    - POSTGRES_PASSWORD=secret
+  pgsql:
+    image: postgres
+    environment:
+      - POSTGRES_DB=yii2advanced
+      - POSTGRES_USER=yii2advanced
+      - POSTGRES_PASSWORD=secret

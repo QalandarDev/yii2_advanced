@@ -1,4 +1,7 @@
 <?php
+
+use yii\web\User;
+
 return [
     'id' => 'app-frontend-tests',
     'components' => [
@@ -13,6 +16,10 @@ return [
         ],
         'mailer' => [
             'messageClass' => \yii\symfonymailer\Message::class
-        ]
+        ],
+        'user' => [
+            'class' => User::class,
+            'identityClass' => \common\models\User::class,
+        ],
     ],
 ];

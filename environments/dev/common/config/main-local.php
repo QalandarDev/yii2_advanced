@@ -1,16 +1,27 @@
 <?php
 
+use yii\db\Connection;
+use yii\symfonymailer\Mailer;
+
 return [
     'components' => [
         'db' => [
-            'class' => \yii\db\Connection::class,
+            'class' => Connection::class,
             'dsn' => 'mysql:host=localhost;dbname=yii2advanced',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
         ],
+        //For using postgresql
+//        'db' => [
+//            'class' => Connection::class,
+//            'dsn' => 'pgsql:host=localhost;dbname=postgres',
+//            'username' => 'postgres',
+//            'password' => 'postgres',
+//            'charset' => 'utf8',
+//        ],
         'mailer' => [
-            'class' => \yii\symfonymailer\Mailer::class,
+            'class' => Mailer::class,
             'viewPath' => '@common/mail',
             // send all mails to a file by default.
             'useFileTransport' => true,

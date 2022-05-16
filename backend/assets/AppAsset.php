@@ -3,6 +3,9 @@
 namespace backend\assets;
 
 use yii\web\AssetBundle;
+use yii\bootstrap5\BootstrapAsset;
+use yii\web\YiiAsset;
+use rmrevin\yii\fontawesome\CdnProAssetBundle;
 
 /**
  * Main backend application asset bundle.
@@ -17,7 +20,8 @@ class AppAsset extends AssetBundle
     public $js = [
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap5\BootstrapAsset',
+        YiiAsset::class,
+        BootstrapAsset::class,
+        CdnProAssetBundle::class
     ];
 }

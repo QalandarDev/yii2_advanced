@@ -3,7 +3,10 @@
 namespace backend\tests\functional;
 
 use backend\tests\FunctionalTester;
+use common\fixtures\AdminFixture;
 use common\fixtures\UserFixture;
+use common\models\Admin;
+use yii\helpers\VarDumper;
 
 /**
  * Class LoginCest
@@ -21,7 +24,7 @@ class LoginCest
     {
         return [
             'user' => [
-                'class' => UserFixture::class,
+                'class' => AdminFixture::class,
                 'dataFile' => codecept_data_dir() . 'login_data.php'
             ]
         ];
@@ -30,13 +33,13 @@ class LoginCest
     /**
      * @param FunctionalTester $I
      */
-    public function loginUser(FunctionalTester $I)
+    public function loginUser(FunctionalTester $I): void
     {
+        VarDumper::dump($I) or die();
         $I->amOnRoute('/site/login');
-        $I->fillField('Username', 'erau');
-        $I->fillField('Password', 'password_0');
+        $I->fillField('username', 'erau');
+        $I->fillField('password', 'password_0');
         $I->click('login-button');
-
         $I->see('Logout (erau)', 'form button[type=submit]');
         $I->dontSeeLink('Login');
         $I->dontSeeLink('Signup');
