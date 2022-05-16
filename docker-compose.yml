@@ -1,18 +1,11 @@
 version: '3.2'
 
 services:
-
-  php-apache-environment:
-    container_name: php-apache
-    image: php:8.0-apache
-    volumes:
-      - ./php/src:/var/www/html/
-    ports:
-      - "8000:80"
+  
   frontend:
     build: frontend
     ports:
-      - "2024:80"
+      - 2024:80
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -22,7 +15,7 @@ services:
   backend:
     build: backend
     ports:
-      - "2025:80"
+      - 2025:80
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
